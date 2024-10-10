@@ -18,7 +18,7 @@ const fetchCryptoData = async () => {
           coin: coinData.id, // `id` contains the coin's name, e.g., 'bitcoin'
           price: coinData.current_price, // `current_price` contains the coin's price
           marketCap: coinData.market_cap, // `market_cap` contains the coin's market cap
-          change24h: coinData.price_change_percentage_24h, // `price_change_percentage_24h` contains the 24h change percentage
+          '24hChange': coinData.price_change_percentage_24h, // `price_change_percentage_24h` contains the 24h change percentage
         });
       });
     console.log('Data fetched and stored in the database successfully!');
