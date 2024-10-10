@@ -4,7 +4,7 @@ const coinStats = asyncHandler(async(req,res) => {
     const coin = req.query.coin;
     if (!coin) return res.status(400).send({ error: 'Coin is required' });
     try{
-        const coinData = await Crypto.findOne({coin: coin}).sort({ timestamp: -1 }).limit(1).exec();
+        const coinData = await Crypto.findOne({coin: coin}).sort({ timestamp: -1 }).select('-createdAt -updatedAt').exec(); // Exclude these fields
         if (!coinData) {
             return res.status(404).json({ message: 'Coin not found' }); // 404 Not Found
           }
